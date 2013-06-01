@@ -1,0 +1,15 @@
+{
+  "name": "yeswescore-proxy",
+  "private": true,
+  "description": "yeswescore proxy",
+  "version": "0.0.1",
+  "engines": { "node": "0.8.x" },
+  "dependencies": {
+    "http-proxy": "0.10.x"
+  },
+  "author": "Marc Dassonneville <marcd@yeswescore.com>",
+  "repository": {
+    "type" : "git",
+    "url" : "git://github.com/voltek62/yeswescore-proxy.git"
+  }
+}
