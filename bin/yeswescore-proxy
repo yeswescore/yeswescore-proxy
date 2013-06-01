@@ -1,0 +1,39 @@
+#!/bin/bash
+#
+# YesWeScore proxy startup service script
+# USAGE: start|stop|status|logs
+#
+# INSTALL: sudo cp yeswescore-proxy /etc/init.d/; sudo chmod +x /etc/init.d/yeswescore-proxy
+# LAUNCH:  sudo service yeswescore-proxy start
+# 
+# /!\ depends on node supervisor.
+# npm install supervisor -g
+#
+# [FIXME] restrict this script to root
+case "$1" in
+start)
+echo "Starting yeswescore-proxy"
+sudo su node -c 'date > /tmp/supervisor-proxy.log'
+sudo su node -c 'export NODE_ENV="PROD"; cd /opt/web/yeswescore-proxy/server/; /usr/bin/supervisor -w /opt/web/yeswescore-proxy/server/ /opt/web/yeswescore-proxy/server/server.js &>> /tmp/supervisor-proxy.log &'
+;;
+stop)
+echo "Stopping yeswescore-proxy"
+sudo pkill -f '^node.*supervisor.*yeswescore-proxy.*server.js'
+sleep 1
+sudo pkill -9 -f '^node.*supervisor.*yeswescore-proxy.*server.js'
+;;
+logs)
+echo "yeswescore-proxy supervisor log."
+sudo cat /tmp/supervisor-proxy.log
+;;
+status)
+# Check to see if the process is running
+sudo pgrep -f '^node.*supervisor.*yeswescore-proxy.*server.js' && echo "  ^--- pid of yeswescore-proxy"
+;;
+ 
+*)
+echo yeswescore-proxy service.
+echo $.Usage: $0 {start|stop|status|logs}.
+exit 1
+esac
+exit 0
