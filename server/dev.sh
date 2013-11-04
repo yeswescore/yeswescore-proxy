@@ -14,7 +14,7 @@ export NODE_ENV="DEV"
 if [ -f ".port" ]
 then
   proxyport=`cat .port | head -1`
-  apiport=`cat ../../yeswescore-server/server/.port`
+  apiport=`cat ../../yeswescore-api/server/.port`
   fbport=`cat ../../yeswescore-facebook/server/.port`
   wwwport=`cat ../../yeswescore-www/server/.port`
   echo ""

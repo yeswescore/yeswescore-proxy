@@ -1,9 +1,9 @@
 var fs = require('fs')
   , httpProxy = require('http-proxy');
 
-if (fs.existsSync('../../yeswescore-server/server/conf.js')) {
+if (fs.existsSync('../../yeswescore-api/server/conf.js')) {
   // configuration
-  var Conf = require('../../yeswescore-server/server/conf.js');  
+  var Conf = require('../../yeswescore-api/server/conf.js');  
   httpProxy.createServer(function (req, res, proxy) {
     if (req.url.substr(0, 4) === "/v1/") {
       console.log('routing ' + req.url + ' to api.v1 (port:' + Conf.get("proxy.http.port.api.v1") + ')');
