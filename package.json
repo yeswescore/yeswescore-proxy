@@ -10,6 +10,6 @@
   "author": "Marc Dassonneville <marcd@yeswescore.com>",
   "repository": {
     "type" : "git",
-    "url" : "git://github.com/voltek62/yeswescore-proxy.git"
+    "url" : "git://github.com/yeswescore/yeswescore-proxy.git"
   }
 }

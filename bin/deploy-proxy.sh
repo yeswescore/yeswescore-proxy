@@ -28,7 +28,7 @@ rm -rf ~/deploy/
 mkdir ~/deploy/
 cd ~/deploy/
 # grabbing code from github
-git clone -b $1 git@github.com:voltek62/yeswescore-proxy.git
+git clone -b $1 git@github.com:yeswescore/yeswescore-proxy.git
 # analysing result
 if [ $? -eq 0 ]
 then
